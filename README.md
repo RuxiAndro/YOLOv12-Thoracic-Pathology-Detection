@@ -20,6 +20,19 @@ To address the challenges of medical imaging, I have implemented several key mod
 * **A2C2f Layers:** Advanced feature aggregation blocks that maintain a high flow of information while reducing computational overhead.
 * **Optimized for Medical Use:** Fine-tuned to balance higher sensitivity (recall) with fast inference, crucial for clinical decision support systems.
 
+  ## Experimental Results (Nodule Detection)
+
+Detection of pulmonary nodules is one of the most challenging tasks in medical imaging due to their small size and low contrast. Our modified YOLOv12 architecture significantly outperformed the baseline model:
+
+| Model | mAP@0.5 (Nodule) | mAP@0.5:0.95 (Nodule) | Recall (Nodule) |
+| :--- | :---: | :---: | :---: |
+| YOLOv12 (Baseline) | 0.0906 | 0.0317 | 0.167 |
+| **YOLOv12-Proposed** | **0.1820** | **0.0699** | **0.233** |
+
+### Key Takeaways:
+* **100% Improvement in mAP@0.5:** The integration of the P2 high-resolution branch and CBAM attention modules allowed the model to better capture fine-grained features of nodules.
+* **Superior Recall:** Increased sensitivity means fewer missed pathologies, a critical factor for clinical decision support systems.
+
 ##  Targeted Pathologies
 The model is trained to identify:
 * **Aortic enlargement** | **Cardiomegaly** | **Pleural effusion** | **Pulmonary nodules/masses** 
