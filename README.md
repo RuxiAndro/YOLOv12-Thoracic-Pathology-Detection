@@ -2,51 +2,36 @@
 
 [![DOI:10.1109/ICCP68926.2025.11427119](https://img.shields.io/badge/DOI-10.1109%2FICCP68926.2025.11427119-blue.svg)](https://doi.org/10.1109/ICCP68926.2025.11427119)
 [![Conference: IEEE ICCP 2025](https://img.shields.io/badge/Conference-IEEE%20ICCP%202025-orange.svg)](https://iccp.ro/iccp2025/technical-program)
-[![Model](https://img.shields.io/badge/YOLO-v12-green)](https://github.com/ultralytics/ultralytics)
 
-##  Abstract
-This research introduces a customized deep learning model based on **YOLOv12**, optimized for high-sensitivity detection of thoracic pathologies in chest X-rays. The model balances real-time inference performance with the precision required for medical diagnostics.
+## Abstract
+In recent years, artificial intelligence has played a pivotal role in advancing medical imaging, particularly in the early detection of thoracic diseases through chest X-rays. We propose an original deep learning model for affected area detection based on the **YOLOv12** object detection architecture, enhanced specifically for medical use cases. 
 
-> **Publication:** Ruxandra Andro and Cristian-Cosmin Vancea. Architectural Enhancements to YOLOv12 for Improving Detection of Thoracic Pathologies in Chest X-rays. Proceedings of IEEE 21st International Conference on Intelligent Computer Communication and Processing (ICCP 2025), 16-18 October 2025, pp. 1-8, DOI: 10.1109/ICCP68926.2025.11427119.
+The improvements include attention mechanisms, deformable convolutions, and feature aggregation modules (FPN and PANet). Experimental results demonstrate that the proposed model achieves a **mAP@0.5 of 0.374** and a **Recall of 0.519**, outperforming existing models while maintaining a competitive inference time of **6.3 ms** per image.
 
-## Proposed Solution & Architectural Enhancements
+##  Key Technical Contributions
+This repository contains the implementation of the architectural modifications described in the paper:
+* **High-Resolution Branch (P2):** Optimized for detecting small-scale pathologies like pulmonary nodules.
+* **Attention Mechanisms (CBAM):** Integrated to enhance feature extraction focus.
+* **Deformable Convolutions:** Implementation of adaptive receptive fields for irregular pathology shapes.
+* **Hybrid Aggregation:** Custom Neck design using FPN and PANet for better multi-scale feature flow.
 
-To address the challenges of medical imaging, I have implemented several key modifications to the standard YOLOv12 architecture. The diagram below illustrates the integration of these components across the Backbone, Neck, and Head.
+##  Performance at a Glance
+| Metric | Value |
+| :--- | :--- |
+| **mAP@0.5 (Overall)** | 0.374 |
+| **Recall (Overall)** | 0.519 |
+| **Inference Speed** | 6.3 ms / image |
 
-![YOLOv12 Medical Architecture Optimization](images/Enhancements_YOLOv12.png)
-*Figure 1: Enhanced YOLOv12 architecture featuring P2 High-Resolution branch, CBAM attention blocks, and Deformable Convolutions.*
+> [!IMPORTANT]  
+> **Full Paper:** For detailed architectural diagrams, training hyperparameters, and ablation studies, please refer to the official publication on [IEEE Xplore](https://doi.org/10.1109/ICCP68926.2025.11427119).
 
-### Key Enhancements:
-
-* **High-Resolution Detection Branch (P2):** As shown in the top dashed section of the diagram, a dedicated P2 branch was added. This allows the model to process feature maps at a higher resolution, significantly improving the detection of small pulmonary nodules.
-* **Convolutional Block Attention Module (CBAM):** Integrated within the Neck (see the red CBAM blocks). This mechanism helps the model focus on the most relevant features by applying both channel and spatial attention.
-* **Deformable Convolutions (DCN):** Replaced standard convolutions in the backbone (marked as `Def.Conv` in red). This allows the receptive field to adapt to the irregular shapes of thoracic pathologies like pleural effusion.
-* **A2C2f Layers:** Advanced feature aggregation blocks that maintain a high flow of information while reducing computational overhead.
-* **Optimized for Medical Use:** Fine-tuned to balance higher sensitivity (recall) with fast inference, crucial for clinical decision support systems.
-
-  ## Experimental Results (Nodule Detection)
-
-Detection of pulmonary nodules is one of the most challenging tasks in medical imaging due to their small size and low contrast. Our modified YOLOv12 architecture significantly outperformed the baseline model:
-
-| Model | mAP@0.5 (Nodule) | mAP@0.5:0.95 (Nodule) | Recall (Nodule) |
-| :--- | :---: | :---: | :---: |
-| YOLOv12 (Baseline) | 0.0906 | 0.0317 | 0.167 |
-| **YOLOv12-Proposed** | **0.1820** | **0.0699** | **0.233** |
-
-### Key Takeaways:
-* **Performance Doubled:** The proposed modifications **effectively doubled the mAP@0.5** for nodule detection (from 0.0906 to 0.1820).
-* **Superior Recall:** Increased sensitivity means fewer missed pathologies, a critical factor for clinical decision support systems.
-
-##  Targeted Pathologies
-The model is trained to identify:
-* **Aortic enlargement** | **Cardiomegaly** | **Pleural effusion** | **Pulmonary nodules/masses** 
-
-##  Repository Structure
-* `/src`: Core implementation of the P2 branch, CBAM integration, and DCN layers.
-* `/paper`: Research paper presented at IEEE ICCP 2025.
-
-
----
-**Author:** Ruxandra Andro  
-**Research Partners:** Cristian-Cosmin Vancea  
-**Institution:** Technical University of Cluj-Napoca (UTCN)
+## Citation
+If you use this work in your research, please cite:
+```latex
+@INPROCEEDINGS{11427119,
+  author={Andro, Ruxandra and Vancea, Cristian-Cosmin},
+  booktitle={Proceedings of IEEE 21st International Conference on Intelligent Computer Communication and Processing (ICCP 2025)}, 
+  title={Architectural Enhancements to YOLOv12 for Improving Detection of Thoracic Pathologies in Chest X-rays}, 
+  year={2025},
+  pages={1-8},
+  doi={10.1109/ICCP68926.2025.11427119}}
