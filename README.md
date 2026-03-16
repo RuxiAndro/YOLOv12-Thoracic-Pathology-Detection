@@ -1,5 +1,10 @@
 # Architectural Enhancements to YOLOv12 for Thoracic Pathology Detection
 
+[![DOI:10.1109/ICCP68926.2025.11427119](https://img.shields.io/badge/DOI-10.1109%2FICCP68926.2025.11427119-blue.svg)](https://doi.org/10.1109/ICCP68926.2025.11427119)
+[![Conference](https://img.shields.io/badge/IEEE-ICCP%202025-orange)](https://doi.org/10.1109/ICCP68926.2025.11427119)
+[![Framework](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?style=flat&logo=PyTorch&logoColor=white)](https://pytorch.org/)
+[![Model](https://img.shields.io/badge/YOLO-v12-green)](https://github.com/ultralytics/ultralytics)
+
 ##  Abstract
 This research introduces a customized deep learning model based on **YOLOv12**, optimized for high-sensitivity detection of thoracic pathologies in chest X-rays. The model balances real-time inference performance with the precision required for medical diagnostics.
 
