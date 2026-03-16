@@ -15,13 +15,6 @@ This repository contains the implementation of the architectural modifications d
 * **Deformable Convolutions:** Implementation of adaptive receptive fields for irregular pathology shapes.
 * **Hybrid Aggregation:** Custom Neck design using FPN and PANet for better multi-scale feature flow.
 
-##  Performance at a Glance
-| Metric | Value |
-| :--- | :--- |
-| **mAP@0.5 (Overall)** | 0.374 |
-| **Recall (Overall)** | 0.519 |
-| **Inference Speed** | 6.3 ms / image |
-
 > [!IMPORTANT]  
 > **Full Paper:** For detailed architectural diagrams, training hyperparameters, and ablation studies, please refer to the official publication on [IEEE Xplore](https://doi.org/10.1109/ICCP68926.2025.11427119).
 
